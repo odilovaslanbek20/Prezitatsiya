@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xulosa qilish. Kreativ jarayon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .presentation {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .slide {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .slide.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .slide-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .slide {
+                padding: 20px;
+            }
+            
+            .slide-img {
+                max-height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            .slide {
+                padding: 15px;
+            }
+            
+            button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .slide-img {
+                max-height: 120px;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        .bounce {
+            animation: bounce 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        <div class="slide active" id="slide1">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Creative Process" class="slide-img">
+                <h1 class="animate__animated animate__fadeInDown">Xulosa qilish. Kreativ jarayon</h1>
+                <p class="animate__animated animate__fadeIn">Prezentatsiyaga xush kelibsiz!</p>
+                <button onclick="nextSlide()" class="animate__animated animate__pulse animate__infinite">Boshlash</button>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide2">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Conclusion Concept" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Xulosa qilish tushunchasi</h2>
+                <p><strong>Javob:</strong> Xulosa qilish – mavjud ma'lumotlarni tahlil qilish orqali umumiy fikrga kelish jarayoni. Bu jarayon muayyan natijalar olish uchun ma'lumotlarni birlashtirish va umumlashtirishni o'z ichiga oladi.</p>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide" id="slide3">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Creative Process" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong>Ijodiy jarayon va uning xususiyatlari</h2>
+                <p><strong>Javob:</strong>Ijodiy jarayon yangi g'oyalar va echimlarni yaratish jarayoni bo'lib, quyidagi xususiyatlarga ega:</p>
+                <ul class="slide-in-left">
+                    <li>Original fikrlash</li>
+                    <li>Muammolarni hal qilish</li>
+                    <li>Yangilikka intilish</li>
+                    <li>Moslashuvchan tafakkur</li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide4">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Creative Stages" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Ijodiy jarayonning bosqichlari</h2>
+                <p><strong>Javob:</strong>Ijodiy jarayon odatda quyidagi bosqichlarga bo'linadi:</p>
+                <ol class="slide-in-right">
+                    <li><strong>Ilk fikrlar va g'oyalar</strong>: Boshida noaniq fikrlar, savollar va muammolar paydo bo'ladi.</li>
+                    <li><strong>Izlanish va tahlil</strong>: Ma'lumotlarni yig'ish va tahlil qilish, yangi g'oyalar yaratish.</li>
+                    <li><strong>Test qilish va amaliyotga kiritish</strong>: Yangi echimlarni sinovdan o'tkazish va amaliyotda qo'llash.</li>
+                    <li><strong>Natijalar va rivojlanish</strong>: Yangi echimni baholash va takomillashtirish.</li>
+                </ol>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide5">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Improvement Factors" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Ijodiy jarayonni takomillashtirishning asosiy omillari</h2>
+                <p><strong>Javob:</strong>Ijodiy jarayonni yaxshilash uchun quyidagi omillar muhim:</p>
+                <ul class="slide-in-left">
+                    <li><strong>Fikrlar erkinligi</strong>: To'siqlarsiz fikrlar bilan ishlash.</li>
+                    <li><strong>Yangi g'oyalarga ochiqlik</strong>: Yangi fikrlar va yangi yondashuvlarga ochiq bo'lish.</li>
+                    <li><strong>Raqobatbardosh muhit</strong>: Innovatsion yondashuvni yaratishga yordam beradigan muhitni yaratish.</li>
+                    <li><strong>Davomiy o'rganish va o'zgarishlarga tayyorlik</strong>: O'zgarishlarga moslashish va o'rganishni davom ettirish.</li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide6">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Conclusion in Creativity" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Xulosa qilishning kreativ jarayonda o'rni</h2>
+                <p><strong>Javob:</strong>Xulosa qilish kreatiiv jarayonning oxirgi bosqichi bo'lib, u olingan barcha ma'lumotlarni umumlashtirish va yangi echimlar yaratish imkoniyatini beradi.</p>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide7">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Successful Thinking" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Kreativ jarayonda muvaffaqiyatli fikrlash uchun nima kerak?</h2>
+                <p><strong>Javob:</strong>Ijodiy fikrlash uchun quyidagi xususiyatlar muhimdir:</p>
+                <ul class="slide-in-right">
+                    <li><strong>Yangilikka ochiqlik</strong></li>
+                    <li><strong>Intellektual qobiliyat</strong></li>
+                    <li><strong>Yangi g'oyalar yaratish qobiliyati</strong></li>
+                    <li><strong>Qayta tiklanish va sabr-toqat</strong></li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide8">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Benefits of Creativity" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Kreativ jarayonning foydalari</h2>
+                <p><strong>Javob:</strong>Kreativ jarayonning foydalari quyidagilarni o'z ichiga oladi:</p>
+                <ul class="slide-in-left">
+                    <li>Yangi echimlar va g'oyalar yaratish.</li>
+                    <li>Yuqori sifatli innovatsiyalarni ishlab chiqish.</li>
+                    <li>Kompaniyaning raqobatbardoshligini oshirish.</li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide9">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Creative Challenges" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Kreativ jarayonni qo'llashda duch keladigan muammolar</h2>
+                <p><strong>Javob:</strong>Kreativ jarayonni amalga oshirishda duch keladigan ba'zi muammolar:</p>
+                <ul class="slide-in-right">
+                    <li>Kreativ bloklanish va yangilikka bo'lgan qo'rqinch.</li>
+                    <li>Vaqt cheklovlari va resurslar yetishmasligi.</li>
+                    <li>O'zgarishlarga qarshi kurashish.</li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide10">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Improving Creativity" class="slide-img">
+                <h2 class="animated"><strong>Savol:</strong> Kreativ jarayonni yanada takomillashtirish usullari</h2>
+                <p><strong>Javob:</strong>Quyidagi usullar kreativi jarayonni yanada takomillashtirishga yordam beradi:</p>
+                <ul class="slide-in-left">
+                    <li><strong>Boshqalar bilan muloqot qilish</strong>: Boshqalar bilan fikr almashish yangi g'oyalarni yaratishga yordam beradi.</li>
+                    <li><strong>Yangi joylar va tajribalar</strong>: Yangi joylar va tajribalar orqali yangi fikrlarni topish.</li>
+                    <li><strong>Innovatsion texnologiyalardan foydalanish</strong>: Texnologiyalar yordamida jarayonlarni tezlashtirish va sifatni oshirish.</li>
+                </ul>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                    <button onclick="nextSlide()">Keyingisi</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" id="slide11">
+            <div class="slide-content">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Conclusion" class="slide-img">
+                <h2 class="animated">Xulosa</h2>
+                <p><strong>Javob:</strong>Ijodiy jarayon yangi g'oyalar yaratish va muammolarni hal qilishda katta ahamiyatga ega. Bu jarayonni takomillashtirish orqali samarali natijalarga erishish mumkin.</p>
+                <div>
+                    <button onclick="prevSlide()">Orqaga</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 11;
+        
+        function showSlide(n) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show the selected slide
+            document.getElementById(`slide${n}`).classList.add('active');
+            
+            // Add animations to elements
+            const slide = document.getElementById(`slide${n}`);
+            const headings = slide.querySelectorAll('h1, h2');
+            const paragraphs = slide.querySelectorAll('p');
+            const lists = slide.querySelectorAll('ul, ol');
+            const buttons = slide.querySelectorAll('button');
+            const img = slide.querySelector('img');
+            
+            headings.forEach((h, i) => {
+                h.classList.add('fade-in');
+                setTimeout(() => {
+                    h.classList.add('animate__animated', 'animate__fadeInDown');
+                }, i * 200);
+            });
+            
+            paragraphs.forEach((p, i) => {
+                p.classList.add('fade-in');
+                setTimeout(() => {
+                    p.classList.add('animate__animated', 'animate__fadeIn');
+                }, (i + headings.length) * 200);
+            });
+            
+            lists.forEach((list, i) => {
+                list.classList.add('fade-in');
+                setTimeout(() => {
+                    list.classList.add('animate__animated', i % 2 === 0 ? 'animate__slideInLeft' : 'animate__slideInRight');
+                }, (i + headings.length + paragraphs.length) * 200);
+            });
+            
+            buttons.forEach((btn, i) => {
+                setTimeout(() => {
+                    btn.classList.add('animate__animated', 'animate__pulse');
+                }, (i + headings.length + paragraphs.length + lists.length) * 200);
+            });
+            
+            if (img) {
+                img.classList.add('animate__animated', 'animate__zoomIn');
+            }
+            
+            currentSlide = n;
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+        
+        // Initialize first slide
+        showSlide(1);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+        
+        // Make responsive
+        window.addEventListener('resize', function() {
+            // Adjustments for smaller screens
+            if (window.innerWidth <= 320) {
+                document.querySelectorAll('.slide').forEach(slide => {
+                    slide.style.padding = '10px';
+                });
+                
+                document.querySelectorAll('h1').forEach(h1 => {
+                    h1.style.fontSize = '1.5rem';
+                });
+                
+                document.querySelectorAll('h2').forEach(h2 => {
+                    h2.style.fontSize = '1.2rem';
+                });
+                
+                document.querySelectorAll('p, li').forEach(text => {
+                    text.style.fontSize = '0.9rem';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
